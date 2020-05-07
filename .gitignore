@@ -1,0 +1,16 @@
+#macOS stuff
+.DS_Store
+
+#vscode stuff
+.vscode/
+
+#modules and yarn configuration
+node_modules/
+yarn-error.log
+yarn.lock
+
+#compiled code directory
+out/
+
+#environment variables
+.env
