@@ -15,11 +15,27 @@ abstract class GenericRoute implements IRoute {
     public overview: string;
     public routeParameters: Array<parameter> = new Array<parameter>();
 
-    public getError(): object {
+    private getParametersRules(): Array<Object> {
+        var parametersRules = new Array<Object>();
+
+        this.routeParameters.forEach((parameter) => {
+            parametersRules.push({
+                name: parameter.name,
+                type: parameter.type,
+                ruleExplained: parameter.ruleExplained,
+            });
+        })
+        
+        return parametersRules;
+    }
+
+    public getError(errorAtParameter: string): object {
         return {
+            errorAtParameter,
             method: this.method,
             urlAdress: this.urlAdress,
             overview: this.overview,
+            parameters: this.getParametersRules(),
         };
     }
 

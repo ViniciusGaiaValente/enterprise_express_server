@@ -32,7 +32,7 @@ class SayHelloRoute extends GenericRoute {
         this.routeParameters.push({
             name: 'name',
             type: 'string',
-            ruleExplained: 'name has be a string with 4 or more chracters',
+            ruleExplained: 'name has to be a string with 4 or more chracters',
             ruleFor: (req: Request, res: Response, next: NextFunction) => {
                 const name: string = req.params.name;
                 if (name !== null && name !== undefined) {
@@ -41,7 +41,7 @@ class SayHelloRoute extends GenericRoute {
                         return;
                     }
                 }
-                res.send({ errorAtParameter: 'name', ...this.getError() })
+                res.send(this.getError('name'));
             }, 
         });
     }

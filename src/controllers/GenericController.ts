@@ -1,7 +1,7 @@
 import { Router, Request, Response, NextFunction } from "express";
 import { injectable } from "inversify";
-import { Method } from "../@types/methodEnum";
 import { IRoute } from "../interfaces/IRoute";
+import { Method } from "../@types/methodEnum";
 
 @injectable()
 abstract class GenericController {

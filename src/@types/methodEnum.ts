@@ -1,9 +1,9 @@
 enum Method {
-    get,
-    post,
-    delete,
-    put,
-    patch,
+    get = 'get',
+    post = 'post',
+    delete = 'delete',
+    put = 'put',
+    patch = 'patch',
 }
 
 export { Method }
