@@ -4,9 +4,9 @@
 
 ## Objetivo
 
-Este projeto visa ser um ponto de partida para apis REST, que desejem seguir os princípios SOLID. São definidas aqui práticas arquiteturais para a construção, em camadas, de uma api. Mais especificamente sobre como encapsular a lógica de negócios, como expor rotas de forma padronizada, como estruturar de forma coesa essa api.
+Este projeto visa ser um ponto de partida para apis REST, que desejem seguir os princípios SOLID. São definidas aqui práticas arquiteturais para a construção, em camadas, de uma api. Mais especificamente sobre como encapsular a lógica de negócios, como expor rotas de forma padronizada e como estruturar de forma coesa essa api.
 
-Não é a intenção deste projeto definir bibliotecas para usos específicos, como acesso a banco de dados e autenticação. Porém, para seguir o "Princípio da substituição de Liskov" (parte do SOLID), qualquer biblioteca ou trecho de código de uso específico, que não esteja intrinsecamente relacionado a estrutura do projeto em si, deve estar devidamente encapsulado, de forma que sua implementação possa ser substituída sem afetar seu comportamento.
+Não é a intenção deste projeto definir bibliotecas para usos específicos, como acesso a banco de dados e autenticação por exemplo. Porém, para seguir o "Princípio da substituição de Liskov" (parte do SOLID), qualquer biblioteca ou trecho de código de uso específico, que não esteja intrinsecamente relacionado a estrutura do projeto em si, deve estar devidamente encapsulado, de forma que sua implementação possa ser substituída sem afetar seu comportamento.
 
 ## Construido com
 
