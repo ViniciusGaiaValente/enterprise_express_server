@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { injectable, inject } from "inversify";
-import { Method } from "../@types/methodEnum";
+import { Method } from "../@types/MethodEnum";
 import { IHelloService } from "../interfaces/services/IHelloService";
 import { DEPENDENCIES } from "../application/DEPENDENCIES";
 import { IMiddleware } from "../interfaces/IMiddleware";
@@ -16,7 +16,7 @@ class SayHelloRoute extends GenericRoute {
         super();
 
         this.method = Method.get;
-        this.urlAdress = '/hello/:name';
+        this.urlAdress = '/SayHello/:name';
         this.overview = 'route used to say hello for the the person with the given name';
 
         //adding external middlewares

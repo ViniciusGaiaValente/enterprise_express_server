@@ -1,51 +1,71 @@
-import { Router, Request, Response, NextFunction } from "express";
+import { Router, Request, Response, NextFunction, Application } from "express";
 import { injectable } from "inversify";
 import { IRoute } from "../interfaces/IRoute";
-import { Method } from "../@types/methodEnum";
+import { IMiddleware } from "../interfaces/IMiddleware";
+import { Method } from "../@types/MethodEnum";
 
 @injectable()
 abstract class GenericController {
 
-    protected configureRoute(router: Router, route: IRoute) {
+    protected abstract sharedUrl: string;
+    protected abstract sharedMiddlewares: Array<IMiddleware>
+    
+    protected routes: Array<IRoute> = new Array<IRoute>();
+    
+    private router: Router = Router();
+
+    private configureRoute(route: IRoute) {
 
         var middlewareHandlers: Array<(req: Request, res: Response, next: NextFunction) => void> = new Array<(req: Request, res: Response, next: NextFunction) => void>();
 
-        route.middlewares.forEach((middleware) => {
+        //parameter validation middlewares
+        route.routeParameters?.forEach((route) => {
+            middlewareHandlers.push(route.ruleFor);
+        });
+
+        route.querryParameters?.forEach((route) => {
+            middlewareHandlers.push(route.ruleFor);
+        });
+
+        route.bodyParameters?.forEach((route) => {
+            middlewareHandlers.push(route.ruleFor);
+        });
+
+        //controller shared middlewares
+        this.sharedMiddlewares.forEach((middleware) => {
             middlewareHandlers.push(middleware.handler);
         });
-        
-        route.routeParameters?.forEach((middleware) => {
-            middlewareHandlers.push(middleware.ruleFor);
-        });
 
-        route.querryParameters?.forEach((middleware) => {
-            middlewareHandlers.push(middleware.ruleFor);
-        });
-
-        route.bodyParameters?.forEach((middleware) => {
-            middlewareHandlers.push(middleware.ruleFor);
+        //route specific middlewares
+        route.middlewares.forEach((middleware) => {
+            middlewareHandlers.push(middleware.handler);
         });
 
         switch(route.method) {
             case Method.get:
-                router.get(route.urlAdress, middlewareHandlers, route.handler);
+                this.router.get(route.urlAdress, middlewareHandlers, route.handler);
                 break;
             case Method.post:
-                router.post(route.urlAdress, middlewareHandlers, route.handler);
+                this.router.post(route.urlAdress, middlewareHandlers, route.handler);
                 break;
             case Method.delete:
-                router.delete(route.urlAdress, middlewareHandlers, route.handler);
+                this.router.delete(route.urlAdress, middlewareHandlers, route.handler);
                 break;
             case Method.put:
-                router.put(route.urlAdress, middlewareHandlers, route.handler);
+                this.router.put(route.urlAdress, middlewareHandlers, route.handler);
                 break;
             case Method.patch:
-                router.patch(route.urlAdress, middlewareHandlers, route.handler);
+                this.router.patch(route.urlAdress, middlewareHandlers, route.handler);
                 break;
         }
     }
 
-    public abstract configureRoutes(router: Router): void;
+    public configureRoutes(app: Application) {
+
+        this.routes.forEach(route => this.configureRoute(route));
+
+        app.use(this.sharedUrl, this.router);
+    }
 }
 
 export { GenericController }

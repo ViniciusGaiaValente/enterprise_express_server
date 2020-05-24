@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { parameter } from "../@types/Parameter";
-import { Method } from "../@types/methodEnum";
 import { IMiddleware } from "./IMiddleware";
+import { Method } from "../@types/MethodEnum";
 
 interface IRoute {
     method: Method;

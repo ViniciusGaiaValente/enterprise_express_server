@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import cors from 'cors';
-import express, { Router } from 'express';
+import express from 'express';
 import { injectable, inject } from 'inversify';
 import { DEPENDENCIES } from './DEPENDENCIES';
 import { GenericController } from '../controllers/GenericController';
@@ -21,11 +21,7 @@ class App {
   }
 
   private routesConfiguration(): void {
-    const router: express.Router = Router();
-    
-    this.helloController.configureRoutes(router);
-
-    this.app.use('/api', router);
+    this.helloController.configureRoutes(this.app);
   }
 
   private globalMiddlewaresConfiguration(): void {
