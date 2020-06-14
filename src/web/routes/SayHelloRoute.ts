@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction } from "express";
 import { injectable, inject } from "inversify";
-import { Method } from "../@types/MethodEnum";
-import { IHelloService } from "../interfaces/services/IHelloService";
-import { DEPENDENCIES } from "../application/DEPENDENCIES";
-import { IMiddleware } from "../interfaces/IMiddleware";
-import { GenericRoute } from "./GenericRoute";
+import { Method } from "../../@types/methodEnum";
+import { IHelloService } from "../../domain/interfaces/services/IHelloService";
+import { DEPENDENCIES } from "../../application/DEPENDENCIES";
+import { IMiddleware } from "../../domain/interfaces/IMiddleware";
+import { GenericRoute } from "../../domain/generics/GenericRoute";
 
 @injectable()
 class SayHelloRoute extends GenericRoute {

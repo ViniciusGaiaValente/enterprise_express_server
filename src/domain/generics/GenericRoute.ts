@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { injectable } from "inversify";
-import { parameter } from "../@types/Parameter";
+import { parameter } from "../../@types/Parameter";
 import { IRoute } from "../interfaces/IRoute";
 import { IMiddleware } from "../interfaces/IMiddleware";
-import { Method } from "../@types/MethodEnum";
+import { Method } from "../../@types/methodEnum";
 
 @injectable()
 abstract class GenericRoute implements IRoute {

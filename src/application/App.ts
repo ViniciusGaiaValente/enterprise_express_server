@@ -3,7 +3,7 @@ import cors from 'cors';
 import express from 'express';
 import { injectable, inject } from 'inversify';
 import { DEPENDENCIES } from './DEPENDENCIES';
-import { GenericController } from '../controllers/GenericController';
+import { GenericController } from '../web/controllers/GenericController';
 
 @injectable()
 class App {

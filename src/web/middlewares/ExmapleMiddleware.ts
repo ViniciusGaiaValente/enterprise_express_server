@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { injectable } from "inversify";
-import { IMiddleware } from "../interfaces/IMiddleware";
+import { IMiddleware } from "../../domain/interfaces/IMiddleware";
 
 @injectable()
 class ExampleMiddleware implements IMiddleware {

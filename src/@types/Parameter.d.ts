@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction } from "express";
 
-type parameter = {
+type Parameter = {
     name: string,
     type: string,
     ruleExplained: string,
     ruleFor: (req: Request, res: Response, next: NextFunction) => void,
 }
 
-export { parameter }
+export { Parameter }

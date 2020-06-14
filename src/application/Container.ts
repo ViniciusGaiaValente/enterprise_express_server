@@ -1,14 +1,14 @@
 import { Container as InversifyContainer } from "inversify";
 import { App } from "./App";
 import { DEPENDENCIES } from "./DEPENDENCIES";
-import { IHelloService } from "../interfaces/services/IHelloService";
-import { HelloService } from "../services/HelloService";
-import { GenericController } from "../controllers/GenericController";
-import { HelloController } from "../controllers/HelloController";
-import { IMiddleware } from "../interfaces/IMiddleware";
-import { ExampleMiddleware } from "../middlewares/ExmapleMiddleware";
-import { GenericRoute } from "../routes/GenericRoute";
-import { SayHelloRoute } from "../routes/SayHelloRoute";
+import { IHelloService } from "../domain/interfaces/services/IHelloService";
+import { HelloService } from "../web/services/HelloService";
+import { GenericController } from "../web/controllers/GenericController";
+import { HelloController } from "../web/controllers/HelloController";
+import { IMiddleware } from "../domain/interfaces/IMiddleware";
+import { ExampleMiddleware } from "../web/middlewares/ExmapleMiddleware";
+import { GenericRoute } from "../domain/generics/GenericRoute";
+import { SayHelloRoute } from "../web/routes/SayHelloRoute";
 
 class Dependencies {
 

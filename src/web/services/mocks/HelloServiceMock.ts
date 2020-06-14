@@ -1,6 +1,6 @@
 import faker from 'faker';
 import { injectable } from "inversify";
-import { IHelloService } from "../../interfaces/services/IHelloService";
+import { IHelloService } from "../../../domain/interfaces/services/IHelloService";
 
 @injectable()
 class HelloServiceMock implements IHelloService {

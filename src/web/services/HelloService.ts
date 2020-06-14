@@ -1,4 +1,4 @@
-import { IHelloService } from '../interfaces/services/IHelloService';
+import { IHelloService } from '../../domain/interfaces/services/IHelloService';
 import { injectable } from "inversify";
 
 @injectable()

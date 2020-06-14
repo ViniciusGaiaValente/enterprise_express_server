@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
-import { parameter } from "../@types/Parameter";
+import { Parameter } from "../../@types/Parameter";
 import { IMiddleware } from "./IMiddleware";
-import { Method } from "../@types/MethodEnum";
+import { Method } from "../../@types/methodEnum";
 
 interface IRoute {
     method: Method;
     urlAdress: string;
     overview: string,
-    routeParameters?: parameter[],
-    querryParameters?: parameter[],
-    bodyParameters?: parameter[],
+    routeParameters?: Parameter[],
+    querryParameters?: Parameter[],
+    bodyParameters?: Parameter[],
     handler: (req: Request, res: Response) => void;
     middlewares: Array<IMiddleware>,
 }

@@ -1,8 +1,8 @@
 import { injectable, inject } from "inversify";
-import { DEPENDENCIES } from "../application/DEPENDENCIES";
-import { GenericRoute } from "../routes/GenericRoute";
+import { DEPENDENCIES } from "../../application/DEPENDENCIES";
+import { GenericRoute } from "../../domain/generics/GenericRoute";
 import { GenericController } from "./GenericController";
-import { IMiddleware } from "../interfaces/IMiddleware";
+import { IMiddleware } from "../../domain/interfaces/IMiddleware";
 
 @injectable()
 class HelloController extends GenericController {

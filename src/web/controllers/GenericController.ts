@@ -1,8 +1,8 @@
 import { Router, Request, Response, NextFunction, Application } from "express";
 import { injectable } from "inversify";
-import { IRoute } from "../interfaces/IRoute";
-import { IMiddleware } from "../interfaces/IMiddleware";
-import { Method } from "../@types/MethodEnum";
+import { IRoute } from "../../domain/interfaces/IRoute";
+import { IMiddleware } from "../../domain/interfaces/IMiddleware";
+import { Method } from "../../@types/methodEnum";
 
 @injectable()
 abstract class GenericController {

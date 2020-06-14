@@ -1,7 +1,7 @@
 import 'mocha';
 import { expect } from 'chai';
 import { Container } from '../application/Container';
-import { IHelloService } from '../interfaces/services/IHelloService';
+import { IHelloService } from '../domain/interfaces/services/IHelloService';
 import { DEPENDENCIES } from '../application/DEPENDENCIES';
 
 const service: IHelloService = Container.get<IHelloService>(DEPENDENCIES.HelloService);
