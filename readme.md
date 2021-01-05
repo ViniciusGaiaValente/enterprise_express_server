@@ -13,7 +13,7 @@ Não é a intenção deste projeto definir bibliotecas para usos específicos, c
 * [Typescript](https://www.typescriptlang.org/) - Suporte para tipagem no javascript
 * [Node.js](https://nodejs.org/en/about/) - Ambiente para execução de codigo javascript
 * [Express](http://expressjs.com/) - Framework web
-* [Inversify](http://inversify.io/) - Biblioteca que adiciona IoC (Inverção de Controle) ou Injeção de Dependencias
+* [Inversify](http://inversify.io/) - Biblioteca que adiciona IoC (Inverção de Controle)
 
 ## Documentação
 
@@ -52,7 +52,7 @@ Para criar um controlador
 
 ### Middlewares
 
-Middlewares servem para tratamentos de rota preliminares (executados antes do handler principal da rota), uma rota pode ter vários middlewares e o mesmo middleware pode ser inserido em várias rotas. Eles são muito úteis para tarefas como, verificar se um cliente está autorizado a acessar uma rota específica ou adicionar, registrar informações de acesso sobre aquela rota, entre outros.
+Middlewares servem para tratamentos de rota preliminares (executados antes do handler principal da rota), uma rota pode ter vários middlewares e o mesmo middleware pode ser inserido em várias rotas. Eles são muito úteis para tarefas como: verificar se um cliente está autorizado a acessar uma rota específica, registrar informações de acesso sobre aquela rota, entre outros.
 
 GenericRoute e GenericController em suas implementações usam por padrão middlewares para verificar e validar os parâmetros definidos em cada rota.
 
